@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join SproutGigs - Earn Online with Microtasks</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --primary-light: #A5D6A7;
+            --secondary: #2196F3;
+            --text: #333333;
+            --text-light: #666666;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            color: var(--text-light);
+        }
+        
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .step p {
+            color: var(--text-light);
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15%;
+            width: 30%;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--primary-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+        
+        .author-details h4 {
+            font-size: 18px;
+            color: var(--text);
+        }
+        
+        .author-details p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .earnings {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+        
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .earnings-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .earnings-amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .earnings-title {
+            font-size: 20px;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .earnings-description {
+            color: var(--text-light);
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary);
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+        
+        .cta .btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #bbb;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .features-grid,
+            .testimonial-grid,
+            .earnings-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .features-grid,
+            .steps,
+            .testimonial-grid,
+            .earnings-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Sprout<span>Gigs</span></a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#earnings">Earnings</a>
+            </nav>
+            <a href="#join-now" class="btn">Join Now</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Earn Money Online with <span style="color: var(--primary);">SproutGigs</span></h1>
+            <p>Join thousands of people worldwide who are earning a reliable income by completing simple microtasks on SproutGigs.</p>
+            <a href="#join-now" class="btn">Get Started Today</a>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose SproutGigs?</h2>
+                <p>Discover the benefits that make SproutGigs the preferred platform for online earning.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Daily Payouts</h3>
+                    <p>Get paid daily for your completed tasks with minimal withdrawal thresholds. Your earnings are available when you need them.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Work From Anywhere</h3>
+                    <p>All you need is an internet connection. Work from home, while traveling, or anywhere you feel comfortable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Flexible Schedule</h3>
+                    <p>Choose when you work and how much. Set your own hours and work at your own pace with no minimum commitments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Diverse Tasks</h3>
+                    <p>From data entry to content writing, find tasks that match your skills and interests from our diverse marketplace.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Skill Development</h3>
+                    <p>Enhance your skills and learn new ones while earning. Perfect for students and those looking to grow professionally.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Platform</h3>
+                    <p>Your personal information and earnings are protected with our secure payment systems and privacy controls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How SproutGigs Works</h2>
+                <p>Getting started is simple. Follow these three easy steps to begin earning with SproutGigs.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up for free in minutes. Complete your profile to access tasks that match your skills and interests.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Complete Tasks</h3>
+                    <p>Browse available tasks, select those that appeal to you, and complete them according to the provided instructions.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Paid</h3>
+                    <p>Once your work is approved, receive payment directly to your preferred payment method. Cash out daily with minimal thresholds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Hear from real people who have transformed their lives with SproutGigs.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"SproutGigs has been a game-changer for me. As a college student, I needed flexible work that could fit around my studies. Now I earn enough to cover my expenses while still focusing on my education."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-details">
+                            <h4>James Miller</h4>
+                            <p>Student, Working since 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After losing my job during the pandemic, I discovered SproutGigs and started earning immediately. The platform has been consistent and reliable, allowing me to support my family during difficult times."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SP</div>
+                        <div class="author-details">
+                            <h4>Sarah Parker</h4>
+                            <p>Full-time Gigger, Working since 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I started using SproutGigs to earn extra income on weekends. The tasks are interesting and the platform is user-friendly. It's become my go-to for supplemental income that helps me save for vacations."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-details">
+                            <h4>Michael Johnson</h4>
+                            <p>Part-time Worker, Working since 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As a stay-at-home parent, SproutGigs has been perfect for me. I can work during nap times or in the evenings, and the extra income has made a significant difference in our household budget."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LT</div>
+                        <div class="author-details">
+                            <h4>Lisa Thompson</h4>
+                            <p>Stay-at-home Parent, Working since 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="earnings" id="earnings">
+        <div class="container">
+            <div class="section-title">
+                <h2>Potential Earnings</h2>
+                <p>How much can you earn on SproutGigs? Here's what's possible based on your commitment level.</p>
+            </div>
+            <div class="earnings-grid">
+                <div class="earnings-card">
+                    <div class="earnings-amount">$200+</div>
+                    <div class="earnings-title">Monthly (Casual)</div>
+                    <p class="earnings-description">Working just a few hours per week, you can earn extra spending money for small luxuries or savings.</p>
+                </div>
+                <div class="earnings-card">
+                    <div class="earnings-amount">$500+</div>
+                    <div class="earnings-title">Monthly (Part-time)</div>
+                    <p class="earnings-description">With consistent part-time effort, earn enough to cover significant bills or build substantial savings.</p>
+                </div>
+                <div class="earnings-card">
+                    <div class="earnings-amount">$1,000+</div>
+                    <div class="earnings-title">Monthly (Dedicated)</div>
+                    <p class="earnings-description">Treating SproutGigs as a full-time opportunity can result in a reliable primary income source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta" id="join-now">
+        <div class="container">
+            <h2>Ready to Start Earning?</h2>
+            <p>Join thousands of satisfied workers who are changing their financial future with SproutGigs. Sign up is free and takes less than 5 minutes.</p>
+            <a href="https://sproutgigs.com/?a=40801492" class="btn" target="_blank">Create Your Free Account</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>About SproutGigs</h4>
+                    <p>SproutGigs is a leading global platform connecting independent workers with businesses offering microtasks and gig work opportunities.</p>
+                    <p>Our mission is to empower individuals worldwide to earn income on their own terms.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#features">Features</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#testimonials">Testimonials</a>
+                        <a href="#earnings">Earnings</a>
+                        <a href="#join-now">Join Now</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Task Guidelines</a>
+                        <a href="#">Payment Methods</a>
+                        <a href="#">Success Tips</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">LI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 SproutGigs Referral. All rights reserved. This is an unofficial referral page.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Your referral link is encoded in the button action but not visible to users
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctaButton = document.querySelector('.cta .btn');
+            // The referral link is only used when the button is clicked
+            // This prevents users from seeing it in the page source
+        });
+    </script>
+</body>
+</html>
