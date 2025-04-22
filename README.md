@@ -8,8 +8,8 @@ SproutGigs (formerly Picoworkers) is an online freelancing and crowdsourcing pla
 
 ## 🔗 My Referral Link
 
-👉 [Click here to sign up on SproutGigs using my referral link]([https://sproutgigs.com/signup?ref=YOUR_REFERRAL_ID](https://sproutgigs.com/?a=40801492))  
-(*Replace the above link with your actual referral URL*)
+👉 [https://sproutgigs.com/signup?ref=YOUR_REFERRAL_ID](https://sproutgigs.com/?a=40801492) 
+
 
 By signing up through this link, you'll help support me while getting access to the same features as any other user. Win-win!
 
